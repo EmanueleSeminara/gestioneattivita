@@ -62,9 +62,9 @@
 				                        <td><%=item.getTitolo() != null? item.getTitolo():"" %></td>
 				                        <td><%=item.getData()!=null? new SimpleDateFormat("dd/MM/yyyy").format(item.getData()):""%></td>
 				                        <td>
-											<a class="btn  btn-sm btn-outline-secondary" href="ExecuteVisualizzaAttivitaServlet?idArticolo=<%=item.getId() %>">Visualizza</a>
-											<a class="btn  btn-sm btn-outline-primary ml-2 mr-2" href="PrepareEditArticoloServlet?idArticolo=<%=item.getId() %>">Modifica</a>
-											<a class="btn btn-outline-danger btn-sm" href="PrepareDeleteArticoloServlet?idArticolo=<%=item.getId() %>">Elimina</a>
+											<a class="btn  btn-sm btn-outline-secondary" href="ExecuteDetailsAttivitaServlet?idAttivita=<%=item.getId() %>">Visualizza</a>
+											<a class="btn  btn-sm btn-outline-primary ml-2 mr-2" href="PrepareEditAttivitaServlet?idAttivita=<%=item.getId() %>">Modifica</a>
+											<a class="btn btn-outline-danger btn-sm" href="PrepareDeleteAttivitaServlet?idAttivita=<%=item.getId() %>">Elimina</a>
 										</td>
 				                    </tr>
 				                    <% } %>

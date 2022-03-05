@@ -26,11 +26,8 @@ public class UtilityAttivitaForm {
 
 	public static boolean validateAttivitaBean(Attivita attivitaToBeValidated) {
 		// prima controlliamo che non siano vuoti i parametri
-
-		if (StringUtils.isBlank(attivitaToBeValidated.getTitolo())
-				|| StringUtils.isBlank(attivitaToBeValidated.getDescrizione())
-				|| attivitaToBeValidated.getPriorita() == null || attivitaToBeValidated.getPriorita() < 1
-				|| attivitaToBeValidated.getPriorita() > 4 || attivitaToBeValidated.getData() == null) {
+		if (StringUtils.isBlank(attivitaToBeValidated.getTitolo()) || attivitaToBeValidated.getPriorita() == null
+				|| attivitaToBeValidated.getPriorita() < 1 || attivitaToBeValidated.getPriorita() > 4) {
 
 			return false;
 		}

@@ -58,7 +58,7 @@ public class AttivitaDAOImpl implements AttivitaDAO {
 		}
 
 		if (example.getData() != null) {
-			query += " and a.data >= '" + example.getData().getTime();
+			query += " and a.data >= '" + new java.sql.Date(example.getData().getTime()) + "'";
 		}
 
 		if (example.getPriorita() != null) {

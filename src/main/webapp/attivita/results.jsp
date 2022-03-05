@@ -13,7 +13,7 @@
 	 </head>
 	 
 	<body class="d-flex flex-column h-100">
-	 
+	 	<%String[] priorita = {"danger", "warning", "info", "active"}; %>
 		<!-- Fixed navbar -->
 		<jsp:include page="../navbar.jsp"></jsp:include>
 	 
@@ -45,7 +45,7 @@
 				    	<a class="btn btn-primary " href="PrepareInsertAttivitaServlet">Aggiungi</a>
 				    
 				        <div class='table-responsive'>
-				            <table class='table table-striped ' >
+				            <table class='table' >
 				                <thead>
 				                    <tr>
 			                         	<th>Id</th>
@@ -57,7 +57,7 @@
 				                <tbody>
 				                	<% List<Attivita> listaAttivita = (List<Attivita>)request.getAttribute("listaAttivitaAttribute");
 				                		for(Attivita item:listaAttivita){ %>
-				                    <tr >
+				                    <tr class="table-<%=priorita[item.getPriorita()-1] %>">
 				                        <td><%=item.getId() != null?  item.getId():""%></td>
 				                        <td><%=item.getTitolo() != null? item.getTitolo():"" %></td>
 				                        <td><%=item.getData()!=null? new SimpleDateFormat("dd/MM/yyyy").format(item.getData()):""%></td>

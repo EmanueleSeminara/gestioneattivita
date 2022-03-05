@@ -12,8 +12,8 @@ import it.prova.gestioneattivita.model.Attivita;
 public class UtilityAttivitaForm {
 	public static Attivita createAttivitaFromParams(String titoloInputParam, String descrizioneInputParam,
 			String prioritaInputStringParam, String dataStringParam) {
-
-		Attivita result = new Attivita(descrizioneInputParam);
+		Attivita result = new Attivita(titoloInputParam);
+		result.setDescrizione(descrizioneInputParam);
 
 		if (NumberUtils.isCreatable(prioritaInputStringParam)) {
 			result.setPriorita(Integer.parseInt(prioritaInputStringParam));
@@ -26,10 +26,12 @@ public class UtilityAttivitaForm {
 
 	public static boolean validateAttivitaBean(Attivita attivitaToBeValidated) {
 		// prima controlliamo che non siano vuoti i parametri
+
 		if (StringUtils.isBlank(attivitaToBeValidated.getTitolo())
 				|| StringUtils.isBlank(attivitaToBeValidated.getDescrizione())
 				|| attivitaToBeValidated.getPriorita() == null || attivitaToBeValidated.getPriorita() < 1
 				|| attivitaToBeValidated.getPriorita() > 4 || attivitaToBeValidated.getData() == null) {
+
 			return false;
 		}
 		return true;

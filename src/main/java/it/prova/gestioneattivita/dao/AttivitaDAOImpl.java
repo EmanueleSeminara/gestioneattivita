@@ -58,11 +58,11 @@ public class AttivitaDAOImpl implements AttivitaDAO {
 		}
 
 		if (example.getData() != null) {
-			query += " and a.data like '" + new java.sql.Date(example.getData().getTime()) + "%' ";
+			query += " and a.data >= '" + example.getData().getTime();
 		}
 
 		if (example.getPriorita() != null) {
-			query += " and a.priorita like '" + example.getPriorita() + "%' ";
+			query += " and a.priorita >= '" + example.getPriorita() + "%' ";
 		}
 
 		return entityManager.createQuery(query, Attivita.class).getResultList();

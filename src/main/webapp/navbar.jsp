@@ -12,7 +12,7 @@
             <a class="nav-link active" aria-current="page" href="index.jsp">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="search.jsp">Cerca</a>
+            <a class="nav-link" href="PrepareSearchAttivitaSeervlet">Cerca</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Inserisci</a>

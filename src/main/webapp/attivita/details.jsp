@@ -10,7 +10,8 @@
 	   <title>Visualizza Elemento</title>
 	 </head>
 	   <body class="d-flex flex-column h-100">
-	   
+	   	<%String[] priorita = {"Alta", "Media", "Bassa", "Normale"}; 
+	   	String[] prioritaColor = {"danger", "warning", "info", "active"};%>
 	   		<!-- Fixed navbar -->
 	   		<jsp:include page="../navbar.jsp"></jsp:include>
 	    
@@ -39,7 +40,7 @@
 					    	
 					    	<dl class="row">
 							  <dt class="col-sm-3 text-right">Priorità:</dt>
-							  <dd class="col-sm-9"><%=attivitaInPagina.getPriorita() %></dd>
+							  <dd class="col-sm-9 text-<%=prioritaColor[attivitaInPagina.getPriorita() - 1]%>"><%=priorita[attivitaInPagina.getPriorita() - 1] %></dd>
 					    	</dl>
 					    	
 					    	<dl class="row">

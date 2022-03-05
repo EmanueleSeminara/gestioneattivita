@@ -28,7 +28,6 @@ public class ExecuteInsertAttivitaServlet extends HttpServlet {
 		// che per inserire) e faccio il binding dei parametri
 		Attivita attivitaInstance = UtilityAttivitaForm.createAttivitaFromParams(titoloInputParam,
 				descrizioneInputParam, prioritaInputStringParam, dataStringParam);
-		System.out.println(attivitaInstance);
 		// se la validazione non risulta ok
 		if (!UtilityAttivitaForm.validateAttivitaBean(attivitaInstance)) {
 			request.setAttribute("insert_attivita_attr", attivitaInstance);

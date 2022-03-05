@@ -34,7 +34,7 @@
 			  
 			  <div class='card'>
 				    <div class='card-header'>
-				        <h5>Inserisci nuova attività</h5> 
+				        <h5>Cerca attività</h5> 
 				    </div>
 				    <div class='card-body'>
 		
@@ -58,8 +58,13 @@
 							
 								<div class="col-md-6">
 									<label for="priorita" class="form-label">Priorità </label>
-									<input type="number" class="form-control" name="priorita" id="priorita" placeholder="Inserire priorita" 
-									value="<%=attivitaInPagina.getPriorita()!=null?attivitaInPagina.getPriorita():"" %>">
+									<select class="form-select" name="priorita">
+									  <option value="" selected disabled hidden="">Inserisci</option>
+									  <option value="1">Alta</option>
+									  <option value="2">Media</option>
+									  <option value="3">Bassa</option>
+									  <option value="4">Normale</option>
+									</select>
 								</div>
 								
 								<div class="col-md-3">

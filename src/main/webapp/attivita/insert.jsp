@@ -56,11 +56,14 @@
 									<input type="text" name="descrizione" id="descrizione" class="form-control" placeholder="Inserire la descrizione"  
 										value="<%=attivitaInPagina.getDescrizione()!=null?attivitaInPagina.getDescrizione():"" %>" required>
 								</div>
-							
 								<div class="col-md-6">
-									<label for="priorita" class="form-label">Priorità <span class="text-danger">*</span></label>
-									<input type="number" class="form-control" name="priorita" id="priorita" placeholder="Inserire prezzo" 
-									value="<%=attivitaInPagina.getPriorita()!=null?attivitaInPagina.getPriorita():"" %>" required>
+									<label for="priorità" class="form-label">Priorità</label>
+									<select class="form-select" name="priorita">
+									  <option value="1">Alta</option>
+									  <option value="2">Media</option>
+									  <option value="3">Bassa</option>
+									  <option value="4" selected>Normale</option>
+									</select>
 								</div>
 								
 								<div class="col-md-3">

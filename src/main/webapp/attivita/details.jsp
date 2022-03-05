@@ -45,7 +45,7 @@
 					    	
 					    	<dl class="row">
 							  <dt class="col-sm-3 text-right">Data:</dt>
-							  <dd class="col-sm-9"><%=attivitaInPagina.getData()!=null? new SimpleDateFormat("dd/MM/yyyy").format(attivitaInPagina.getData()):"N.D."  %></dd>
+							  <dd class="col-sm-9"><%=attivitaInPagina.getData()!=null? new SimpleDateFormat("dd/MM/yyyy").format(attivitaInPagina.getData()):""  %></dd>
 					    	</dl>
 					    	
 					    </div>

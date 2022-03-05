@@ -15,7 +15,7 @@
             <a class="nav-link" href="PrepareSearchAttivitaSeervlet">Cerca</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Inserisci</a>
+            <a class="nav-link" href="PrepareInsertAttivitaServlet">Inserisci</a>
           </li>
           
         </ul>

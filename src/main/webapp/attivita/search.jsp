@@ -38,7 +38,6 @@
 				    </div>
 				    <div class='card-body'>
 		
-							<h6 class="card-title">I campi con <span class="text-danger">*</span> sono obbligatori</h6>
 		
 		
 							<form method="post" action="ExecuteSearchAttivitaServlet" class="row g-3" novalidate="novalidate">
@@ -46,27 +45,27 @@
 								<% Attivita attivitaInPagina = (Attivita)request.getAttribute("search_attivita_attr"); %>
 							
 								<div class="col-md-6">
-									<label for="titolo" class="form-label">Titolo <span class="text-danger">*</span></label>
+									<label for="titolo" class="form-label">Titolo </label>
 									<input type="text" name="titolo" id="titolo" class="form-control" placeholder="Inserire il titolo"  
-										value="<%=attivitaInPagina.getTitolo()!=null?attivitaInPagina.getTitolo():"" %>" required>
+										value="<%=attivitaInPagina.getTitolo()!=null?attivitaInPagina.getTitolo():"" %>">
 								</div>
 								
 								<div class="col-md-6">
-									<label for="descrizione" class="form-label">Descrizione <span class="text-danger">*</span></label>
+									<label for="descrizione" class="form-label">Descrizione </label>
 									<input type="text" name="descrizione" id="descrizione" class="form-control" placeholder="Inserire la descrizione"  
-										value="<%=attivitaInPagina.getDescrizione()!=null?attivitaInPagina.getDescrizione():"" %>" required>
+										value="<%=attivitaInPagina.getDescrizione()!=null?attivitaInPagina.getDescrizione():"" %>">
 								</div>
 							
 								<div class="col-md-6">
-									<label for="priorita" class="form-label">Priorità <span class="text-danger">*</span></label>
+									<label for="priorita" class="form-label">Priorità </label>
 									<input type="number" class="form-control" name="priorita" id="priorita" placeholder="Inserire priorita" 
-									value="<%=attivitaInPagina.getPriorita()!=null?attivitaInPagina.getPriorita():"" %>" required>
+									value="<%=attivitaInPagina.getPriorita()!=null?attivitaInPagina.getPriorita():"" %>">
 								</div>
 								
 								<div class="col-md-3">
-									<label for="data" class="form-label">Data<span class="text-danger">*</span></label>
+									<label for="data" class="form-label">Data</label>
 									<input class="form-control"  name="data" id="data" type="date" placeholder="dd/MM/yy" title="formato : gg/mm/aaaa" 
-										value="<%=attivitaInPagina.getData()!=null? new SimpleDateFormat("yyyy-MM-dd").format(attivitaInPagina.getData()):""  %>" required/>
+										value="<%=attivitaInPagina.getData()!=null? new SimpleDateFormat("yyyy-MM-dd").format(attivitaInPagina.getData()):""  %>"/>
 								</div>
 								
 								

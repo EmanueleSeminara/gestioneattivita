@@ -30,6 +30,7 @@ public class ExecuteInsertAttivitaServlet extends HttpServlet {
 				descrizioneInputParam, prioritaInputStringParam, dataStringParam);
 		// se la validazione non risulta ok
 		if (!UtilityAttivitaForm.validateAttivitaBean(attivitaInstance)) {
+			request.setAttribute("activePage", "add");
 			request.setAttribute("insert_attivita_attr", attivitaInstance);
 			request.setAttribute("errorMessage", "Attenzione sono presenti errori di validazione");
 			request.getRequestDispatcher("/attivita/insert.jsp").forward(request, response);
@@ -44,11 +45,12 @@ public class ExecuteInsertAttivitaServlet extends HttpServlet {
 			request.setAttribute("successMessage", "Operazione effettuata con successo");
 		} catch (Exception e) {
 			e.printStackTrace();
+			request.setAttribute("activePage", "home");
 			request.setAttribute("errorMessage", "Attenzione si è verificato un errore.");
 			request.getRequestDispatcher("/index.jsp").forward(request, response);
 			return;
 		}
-
+		request.setAttribute("activePage", "search");
 		// andiamo ai risultati
 		request.getRequestDispatcher("/attivita/results.jsp").forward(request, response);
 	}

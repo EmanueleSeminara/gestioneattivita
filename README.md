@@ -1,3 +1,3 @@
 # gestioneattivita
 
-![Alt text](/assets/img/screenshot/screanshot.png?raw=true "Optional Title")
+![Alt text](https://ibb.co/KxjdcMc "Optional title")

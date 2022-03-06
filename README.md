@@ -1,3 +1,3 @@
 # gestioneattivita
 
-![Alt text](/relative/path/to/img.jpg?raw=true "Optional Title")
+![Alt text](gestioneattivita/tree/master/src/main/webapp/assets/img/screenshot/screanshot.png?raw=true "Optional Title")

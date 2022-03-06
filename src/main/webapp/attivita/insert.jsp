@@ -1,6 +1,7 @@
 <!doctype html>
-<%@page import="java.text.SimpleDateFormat"%>
-<%@page import="it.prova.gestioneattivita.model.Attivita"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <html lang="it" class="h-100" >
 	 <head>
 	 
@@ -43,21 +44,21 @@
 		
 							<form method="post" action="ExecuteInsertAttivitaServlet" class="row g-3" novalidate="novalidate">
 							
-								<% Attivita attivitaInPagina = (Attivita)request.getAttribute("insert_attivita_attr"); %>
+								<c:set var="attivitaInPagina" value="${insert_attivita_attr}"></c:set>
 							
 								<div class="col-md-6">
 									<label for="codice" class="form-label">Titolo <span class="text-danger">*</span></label>
 									<input type="text" name="titolo" id="titolo" class="form-control" placeholder="Inserire il titolo"  
-										value="<%=attivitaInPagina.getTitolo()!=null?attivitaInPagina.getTitolo():"" %>" required>
+										value="${attivitaInPagina.titolo}" required>
 								</div>
 								
 								<div class="col-md-6">
 									<label for="descrizione" class="form-label">Descrizione</label>
 									<input type="text" name="descrizione" id="descrizione" class="form-control" placeholder="Inserire la descrizione"  
-										value="<%=attivitaInPagina.getDescrizione()!=null?attivitaInPagina.getDescrizione():"" %>" required>
+										value="${attivitaInPagina.descrizione}" required>
 								</div>
 								<div class="col-md-6">
-									<label for="priorità" class="form-label">Priorità</label>
+									<label for="priorità" class="form-label">Priorità<span class="text-danger">*</span></label>
 									<select class="form-select" name="priorita">
 									  <option value="1">Alta</option>
 									  <option value="2">Media</option>
@@ -69,7 +70,7 @@
 								<div class="col-md-3">
 									<label for="dataNascita" class="form-label">Data</label>
 									<input class="form-control"  name="data" id="data" type="date" placeholder="dd/MM/yy" title="formato : gg/mm/aaaa" 
-										value="<%=attivitaInPagina.getData()!=null? new SimpleDateFormat("yyyy-MM-dd").format(attivitaInPagina.getData()):""  %>" required/>
+										value="<fmt:formatDate pattern="dd/MM/yyyy" value="${attivitaInPagina.data}" />" required/>
 								</div>
 								
 								

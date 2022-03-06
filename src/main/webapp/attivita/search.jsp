@@ -1,6 +1,7 @@
 <!doctype html>
-<%@page import="java.text.SimpleDateFormat"%>
-<%@page import="it.prova.gestioneattivita.model.Attivita"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <html lang="it" class="h-100" >
 	 <head>
 	 
@@ -41,19 +42,18 @@
 		
 		
 							<form method="post" action="ExecuteSearchAttivitaServlet" class="row g-3" novalidate="novalidate">
-							
-								<% Attivita attivitaInPagina = (Attivita)request.getAttribute("search_attivita_attr"); %>
+								<c:set var="attivitaInPagina" value="${search_attivita_attr}"></c:set>
 							
 								<div class="col-md-6">
 									<label for="titolo" class="form-label">Titolo </label>
 									<input type="text" name="titolo" id="titolo" class="form-control" placeholder="Inserire il titolo"  
-										value="<%=attivitaInPagina.getTitolo()!=null?attivitaInPagina.getTitolo():"" %>">
+										value="${attivitaInPagina.getTitolo()}">
 								</div>
 								
 								<div class="col-md-6">
 									<label for="descrizione" class="form-label">Descrizione </label>
 									<input type="text" name="descrizione" id="descrizione" class="form-control" placeholder="Inserire la descrizione"  
-										value="<%=attivitaInPagina.getDescrizione()!=null?attivitaInPagina.getDescrizione():"" %>">
+										value="${attivitaInPagina.getDescrizione()}">
 								</div>
 							
 								<div class="col-md-6">
@@ -70,7 +70,7 @@
 								<div class="col-md-3">
 									<label for="data" class="form-label">Data</label>
 									<input class="form-control"  name="data" id="data" type="date" placeholder="dd/MM/yy" title="formato : gg/mm/aaaa" 
-										value="<%=attivitaInPagina.getData()!=null? new SimpleDateFormat("yyyy-MM-dd").format(attivitaInPagina.getData()):""  %>"/>
+										value="<fmt:formatDate pattern="dd/MM/yyyy" value="${attivitaInPagina.data}" />"/>
 								</div>
 								
 								

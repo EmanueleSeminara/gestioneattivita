@@ -1,6 +1,6 @@
-<%@page import="java.text.SimpleDateFormat"%>
-<%@page import="it.prova.gestioneattivita.model.Attivita"%>
-<%@page import="java.util.List"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
 <!doctype html>
 <html lang="it" class="h-100" >
@@ -13,7 +13,7 @@
 	 </head>
 	 
 	<body class="d-flex flex-column h-100">
-	 	<%String[] priorita = {"danger", "warning", "info", "active"}; %>
+		<c:set var="priorita" value="${fn:split('danger,warning,info,active', ',')}"/>
 		<!-- Fixed navbar -->
 		<jsp:include page="../navbar.jsp"></jsp:include>
 	 
@@ -55,20 +55,18 @@
 				                    </tr>
 				                </thead>
 				                <tbody>
-				                	<% List<Attivita> listaAttivita = (List<Attivita>)request.getAttribute("listaAttivitaAttribute");
-				                		for(Attivita item:listaAttivita){ %>
-				                    <tr class="table-<%=priorita[item.getPriorita()-1] %>">
-				                        <td><%=item.getId() != null?  item.getId():""%></td>
-				                        <td><%=item.getTitolo() != null? item.getTitolo():"" %></td>
-				                        <td><%=item.getData()!=null? new SimpleDateFormat("dd/MM/yyyy").format(item.getData()):""%></td>
-				                        <td>
-											<a class="btn  btn-sm btn-outline-secondary" href="ExecuteDetailsAttivitaServlet?idAttivita=<%=item.getId() %>">Visualizza</a>
-											<a class="btn  btn-sm btn-outline-primary ml-2 mr-2" href="PrepareEditAttivitaServlet?idAttivita=<%=item.getId() %>">Modifica</a>
-											<a class="btn btn-outline-danger btn-sm" href="PrepareDeleteAttivitaServlet?idAttivita=<%=item.getId() %>">Elimina</a>
-										</td>
-				                    </tr>
-				                    <% } %>
-				                    
+				                	<c:forEach items="${listaAttivitaAttribute}" var="item"  >
+				                		<tr class="table-${priorita[item.priorita-1]}">
+					                		<td><c:out value = "${item.getId()}"/><p></td>
+					                		<td><c:out value = "${item.getTitolo()}"/><p></td>
+					                		<td><fmt:formatDate pattern="dd/MM/yyyy" value="${item.getData()}" /></td>
+					                		<td>
+					                			<a class="btn  btn-sm btn-outline-secondary" href="ExecuteDetailsAttivitaServlet?idAttivita=${item.id}">Visualizza</a>
+												<a class="btn  btn-sm btn-outline-primary ml-2 mr-2" href="PrepareEditAttivitaServlet?idAttivita=${item.id}">Modifica</a>
+												<a class="btn btn-outline-danger btn-sm" href="PrepareDeleteAttivitaServlet?idAttivita=${item.id}">Elimina</a>
+					                		</td>
+					                	</tr>
+					                </c:forEach>
 				                </tbody>
 				            </table>
 				        </div>

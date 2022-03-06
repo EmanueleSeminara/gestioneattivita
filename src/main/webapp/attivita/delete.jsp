@@ -1,6 +1,8 @@
 <!doctype html>
-<%@page import="java.text.SimpleDateFormat"%>
-<%@page import="it.prova.gestioneattivita.model.Attivita"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
 <html lang="it" class="h-100" >
 	 <head>
 	 
@@ -10,6 +12,8 @@
 	   <title>Elimina Elemento</title>
 	 </head>
 	   <body class="d-flex flex-column h-100">
+	   	<c:set var="prioritaColor" value="${fn:split('danger,warning,info,active', ',')}"/>
+		<c:set var="priorita" value="${fn:split('Alta,Media,Bassa,Normale', ',')}"/>
 	   
 	   		<!-- Fixed navbar -->
 	   		<jsp:include page="../navbar.jsp"></jsp:include>
@@ -23,35 +27,35 @@
 					    <div class='card-header'>
 					        <h5>Visualizza dettaglio</h5>
 					    </div>
-					     <% Attivita attivitaInPagina = (Attivita)request.getAttribute("visualizza_attivita_attr"); %>
+					     <c:set var="attivitaInPagina" value="${visualizza_attivita_attr}"></c:set>
 					    
 					
 					    <div class='card-body'>
 					    	<dl class="row">
 							  <dt class="col-sm-3 text-right">Titolo</dt>
-							  <dd class="col-sm-9"><%=attivitaInPagina.getTitolo() %></dd>
+							  <dd class="col-sm-9">${attivitaInPagina.titolo}</dd>
 					    	</dl>
 					    	
 					    	<dl class="row">
 							  <dt class="col-sm-3 text-right">Descrizione:</dt>
-							  <dd class="col-sm-9"><%=attivitaInPagina.getDescrizione() %></dd>
+							  <dd class="col-sm-9">${attivitaInPagina.descrizione}</dd>
 					    	</dl>
 					    	
 					    	<dl class="row">
 							  <dt class="col-sm-3 text-right">Priorità:</dt>
-							  <dd class="col-sm-9"><%=attivitaInPagina.getPriorita() %></dd>
+							  <dd class="col-sm-9 text-${prioritaColor[attivitaInPagina.priorita - 1]}">${priorita[attivitaInPagina.priorita - 1]}</dd>
 					    	</dl>
 					    	
 					    	<dl class="row">
 							  <dt class="col-sm-3 text-right">Data:</dt>
-							  <dd class="col-sm-9"><%=attivitaInPagina.getData()!=null? new SimpleDateFormat("dd/MM/yyyy").format(attivitaInPagina.getData()):"N.D."  %></dd>
+							  <dd class="col-sm-9"><fmt:formatDate pattern="dd/MM/yyyy" value="${attivitaInPagina.data}" /></dd>
 					    	</dl>
 					    	
 					    </div>
 					    
 					    <div class='card-footer'>
 					    	<form method="post" action="ExecuteDeleteAttivitaServlet">
-					    	<input type="hidden" name="idAttivita" value="<%=attivitaInPagina.getId()%>">
+					    	<input type="hidden" name="idAttivita" value="${attivitaInPagina.id}">
 						    	<button type="submit"  value="Conferma" class="btn btn-primary">Conferma</button>
 					        </form>
 					    </div>

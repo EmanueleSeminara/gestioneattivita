@@ -1,3 +1,3 @@
 # gestioneattivita
 
-![Alt text](/src/main/webapp/assets/img/screenshot/screanshot.png?raw=true "Optional Title")
+![Alt text](/main/webapp/assets/img/screenshot/screanshot.png?raw=true "Optional Title")

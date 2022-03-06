@@ -10,13 +10,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import it.prova.gestioneattivita.model.Attivita;
 
-@WebServlet("/PrepareSearchAttivitaSeervlet")
-public class PrepareSearchAttivitaSeervlet extends HttpServlet {
+@WebServlet("/PrepareSearchAttivitaServlet")
+public class PrepareSearchAttivitaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setAttribute("search_attivita_attr", new Attivita());
+		request.setAttribute("activePage", "search");
 		request.getRequestDispatcher("/attivita/search.jsp").forward(request, response);
 
 	}

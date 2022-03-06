@@ -16,6 +16,7 @@ public class PrepareInsertAttivitaServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		request.setAttribute("activePage", "add");
 		request.setAttribute("insert_attivita_attr", new Attivita());
 		request.getRequestDispatcher("/attivita/insert.jsp").forward(request, response);
 	}

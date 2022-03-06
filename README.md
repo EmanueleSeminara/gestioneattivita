@@ -1,3 +1,3 @@
 # gestioneattivita
 
-![Alt text](https://ibb.co/KxjdcMc "Optional title")
+![Alt text](https://i.ibb.co/tpMgw7w/screenshot-1.png "Optional title")
